@@ -1,0 +1,16 @@
+<div class="w-[100%] h-[100%] flex flex-col">
+<header class="w-[100%] bg-[#101010] basis-[10%] relative flex justify-center items-center">
+    <h1 class="font-context text-2xl lg:text-5xl text-white">SHOCKSTAN</h1>
+</header>
+<div class="w-[100%] bg-[#222327] basis-[79%] font-context overflow-auto">
+<div class="bg-[#222327] p-3 w-full">
+<pre *ngFor="let result of chat; let i=index"><div class="text-sm lg:text-base my-2 rounded-xl text-white font-bold" [ngClass]="result.type==='request'?'bg-[#37393b]':'bg-[#131314]'"><fa-icon [icon]="AIicon" *ngIf="result.type==='response'"></fa-icon><ngx-typed-js (completed)="typingComplete()" *ngIf="result.type==='response';else elseBlock" [strings]="[result.result]" [typeSpeed]="10" [backSpeed]="0" [showCursor]="false"><div class="typing pl-10 pr-5"></div></ngx-typed-js><ng-template #elseBlock><fa-icon [icon]="authorIcon"></fa-icon><div [innerHTML]="result.result" class="pl-10 pr-5"></div></ng-template>
+</div></pre>
+</div>
+<div #bottomLine class="w-full basis-[1%]"></div>
+</div>
+<div class="w-full basis-[10%] bg-black p-[10px] flex flex-row justify-around items-center">
+<input placeholder="Ask me anything...." type="text" id="prompt" [(ngModel)]="prompt" name="prompt" class="bg-[#111111] font-bold font-context m-2 pl-5 p-2 basis-[75%] text-white outline-blue-400 outline-none lg:basis-[85%] rounded-xl h-[50px]" />
+<button (click)="askAI()" class="relative -left-[3%] -top-[8%] rounded-xl text-white h-[45px] text-3xl hover:scale-125" [disabled]="scroll"><fa-icon [icon]="sendIcon"></fa-icon></button>
+</div>
+</div>

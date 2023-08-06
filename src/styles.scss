@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: calc(100vh - 55px);
+    overflow: hidden;
+}
+@media only screen and (min-width: 640px) {
+    body {
+      height: 100vh;
+    }
+}
